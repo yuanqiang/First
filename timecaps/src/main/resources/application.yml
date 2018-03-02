@@ -1,0 +1,30 @@
+
+server:
+    port: 1105
+
+#默认使用配置
+#spring:
+#  profiles:
+#    active: dev
+
+#公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
+mybatis:
+#  typeAliasesPackage: com.fangdd.first.entity
+  mapperLocations: classpath:mybatis/**/*.xml
+
+
+---
+
+#开发配置
+spring:
+#  profiles: dev
+
+  datasource:
+    url: jdbc:mysql://time.caps.aliyun:3306/time_caps
+    username: root
+    password: Fdd@123abc
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
