@@ -11,7 +11,7 @@
     </select>
 
     <select id="listRecords"  resultMap="com.timecaps.dao.RecordMapper.ResultMapWithBLOBs">
-        select * from record
+        select * from record where record.user_id=#{arg0} limit #{arg1}, #{arg2}
     </select>
 
 

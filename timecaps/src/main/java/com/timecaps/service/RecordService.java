@@ -4,7 +4,9 @@ import com.timecaps.common.exception.SystemErrorCodeConstant;
 import com.timecaps.dao.RecordMapper;
 import com.timecaps.dao.RecordMapperExt;
 import com.timecaps.dao.entity.Record;
+import com.timecaps.dao.entity.RecordWithBLOBs;
 import com.timecaps.helper.ErrorHandler;
+import com.timecaps.request.AddRecordRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +28,8 @@ public class RecordService {
     @Autowired
     private RecordMapperExt recordMapperExt;
 
-    public List<Record> listRecords() {
-        return  recordMapperExt.listRecords();
+    public List<Record> listRecords(int userId, int pageNo, int pageSize) {
+        return  recordMapperExt.listRecords(userId, pageNo, pageSize);
     }
 
     /**
@@ -44,6 +46,25 @@ public class RecordService {
         }
 
         return record;
+    }
+
+    public int addRecord(AddRecordRequest request){
+        RecordWithBLOBs record = new RecordWithBLOBs();
+
+        record.setUserId(request.getUserId());
+        record.setTitle(request.getTitle());
+        record.setContent(request.getContent());
+        record.setUrls(request.getUrls());
+        record.setExpirationTime(request.getExpiration_time());
+
+        int result = recordMapper.insertSelective(record);
+
+        if(result != 1) {
+            logger.error("插入记录失败");
+            ErrorHandler.throwError(SystemErrorCodeConstant.INSERT_FAILED);
+        }
+
+        return result;
     }
 
 }

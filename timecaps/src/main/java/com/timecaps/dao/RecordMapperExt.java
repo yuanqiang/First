@@ -18,5 +18,5 @@ public interface RecordMapperExt {
 
 //    @Select("select * from record")
 //    @ResultMap("com.timecaps.dao.RecordMapper.ResultMapWithBLOBs")
-    public List<Record> listRecords();
+    public List<Record> listRecords(int userId, int pageNo, int pageSize);
 }
