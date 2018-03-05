@@ -362,6 +362,11 @@ public class SystemErrorCodeConstant {
     public static final ErrorCode LONGTITUDE_ILLEGAL = new ErrorCode(90278, "经度不合法");
     public static final ErrorCode LATITUDE_ILLEGAL = new ErrorCode(90279, "纬度不合法");
     public static final ErrorCode RENT_HOUSE_NOT_EXIST = new ErrorCode(90280, "房源不存在");
+
+
     public static final ErrorCode QUERY_FAILED = new ErrorCode(90281, "查询失败");
     public static final ErrorCode INSERT_FAILED = new ErrorCode(90282, "插入失败");
+    public static final ErrorCode USER_NO_EXIST = new ErrorCode(90283, "账号或密码有误");
+    public static final ErrorCode USER_EXIST = new ErrorCode(90284, "该用户已存在");
+
 }

@@ -39,5 +39,8 @@
         <table tableName="record" domainObjectName="Record" enableCountByExample="false" enableUpdateByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">
         </table>
+        <table tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="true">
+        </table>
     </context>
 </generatorConfiguration>
